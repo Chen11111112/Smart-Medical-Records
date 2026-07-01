@@ -172,7 +172,6 @@ export default function  MedicalAsr({
     inputType: "record" | "upload"
   ) => {
     if (DEMO_WHISPER_DISABLED) {
-      setTranscript(transcript + `[disabled]\n${DEMO_WHISPER_DISABLED_MESSAGE}\n\n`);
       return;
     }
 
@@ -295,15 +294,15 @@ export default function  MedicalAsr({
       <div className={styles.controls}>
         <div className={styles.configRow}>
           <div className={styles.btnGroup}>
-            <button onClick={handleStart} disabled={DEMO_WHISPER_DISABLED || isSystemActive}>
+            <button onClick={handleStart} disabled={isSystemActive}>
               {isSystemActive ? '錄音運作中...' : '開始自動錄音'}
             </button>
             
-            <button onClick={handleStop} disabled={DEMO_WHISPER_DISABLED || !isSystemActive}>
+            <button onClick={handleStop} disabled={!isSystemActive}>
               停止錄音
             </button>
             
-            <button onClick={handleSummarize} disabled={DEMO_WHISPER_DISABLED || isSummarizing}>
+            <button onClick={handleSummarize} disabled={isSummarizing}>
               {isSummarizing ? '整理中...' : '生成醫療報告'}
             </button>
 
@@ -313,12 +312,12 @@ export default function  MedicalAsr({
               accept={ACCEPTED_AUDIO_TYPES}
               className={styles.hiddenFileInput}
               onChange={handleFileSelect}
-              disabled={DEMO_WHISPER_DISABLED || isFileTranscribing || status === 'uploading'}
+              disabled={isFileTranscribing || status === 'uploading'}
             />
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              disabled={DEMO_WHISPER_DISABLED || isFileTranscribing || status === 'uploading'}
+              disabled={isFileTranscribing || status === 'uploading'}
             >
               {isFileTranscribing ? '轉錄中...' : '上傳語音檔'}
             </button>

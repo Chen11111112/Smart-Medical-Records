@@ -34,9 +34,6 @@ import { bootstrapPatientSession } from "@/lib/utils/bootstrapPatientSession";
 import { isErsUrl, markOpenedAsErsPopup, persistReturnUrl } from "@/lib/utils/ersReturnUrl";
 import {
   DEMO_HOSPITAL_INTEGRATION_DISABLED,
-  DEMO_HOSPITAL_INTEGRATION_MESSAGE,
-  DEMO_WHISPER_DISABLED,
-  DEMO_WHISPER_DISABLED_MESSAGE,
 } from "@/lib/constants/demoIntegration";
 import type {
   ExternalSessionMedicalInfo,
@@ -386,11 +383,6 @@ export default function MedicalRecordInterfaceClient() {
   };
 
   const handleSave = async () => {
-    if (DEMO_HOSPITAL_INTEGRATION_DISABLED) {
-      alert(DEMO_HOSPITAL_INTEGRATION_MESSAGE);
-      return;
-    }
-
     if (!medicalFormRef.current?.validateFieldLengths()) {
       return;
     }
@@ -431,6 +423,12 @@ export default function MedicalRecordInterfaceClient() {
       icdList: payload.icdList,
       icd: payload.icdList[0] ?? medicalInfo.icd,
     });
+
+    if (DEMO_HOSPITAL_INTEGRATION_DISABLED) {
+      setShowToast(true);
+      window.setTimeout(() => setShowToast(false), 1200);
+      return;
+    }
 
     const result = await saveMedicalRecord(payload);
     if (!result.success) {
@@ -626,19 +624,12 @@ export default function MedicalRecordInterfaceClient() {
               </button>
               <button
                 className={styles.toggleBtn}
-                onClick={() => {
-                  if (DEMO_WHISPER_DISABLED) {
-                    alert(DEMO_WHISPER_DISABLED_MESSAGE);
-                    return;
-                  }
-                  setIsWhisperModalOpen(true);
-                }}
-                disabled={DEMO_WHISPER_DISABLED}
+                onClick={() => setIsWhisperModalOpen(true)}
               >
                 Whisper
               </button>
 
-              <button onClick={handleSave} disabled={DEMO_HOSPITAL_INTEGRATION_DISABLED}>儲存病患資料</button>
+              <button onClick={handleSave}>儲存病患資料</button>
               <button onClick={toggleDarkMode}>
                 {isDarkMode ? "夜間模式" : "日間模式"}
               </button>
