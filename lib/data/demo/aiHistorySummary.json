@@ -1,0 +1,25 @@
+{
+  "Outpatient History": null,
+  "Inpatient History": [
+    "2026-04-15: Admission to General Surgery department"
+  ],
+  "Lab Results": [
+    "WBC: Peaked at 25,500/uL (2026-04-23), followed by a downward trend to 8,500/uL (2026-05-03).",
+    "Hb: Trough of 7.0 g/dL (2026-04-25), with improvement to 9.3 g/dL (2026-05-03).",
+    "CRP: Initial 17.75 mg/dL (2026-04-14), peaked at 16.27 mg/dL (2026-04-27) after surgery, then decreased to 7.33 mg/dL (2026-05-03).",
+    "eGFR: 80 mL/min/1.73m2 (2026-04-14), peaked at 191 mL/min/1.73m2 (2026-04-23), and 123 mL/min/1.73m2 (2026-05-03).",
+    "Procalcitonin: 4.65 ng/mL (2026-04-14), decreasing to 1.1 ng/mL (2026-04-28).",
+    "NT-pro-BNP: 810.0 pg/mL (2026-04-14).",
+    "Troponin I: <0.10 ng/mL (2026-04-14).",
+    "Potassium: 2.8 mEq/L (2026-04-14), normalized to 4.2 mEq/L (2026-05-03)."
+  ],
+  "Past Surgery History": [
+    "2026-04-23: Jejunocolostomy and Enterolysis (Small bowel obstruction)"
+  ],
+  "Past Medical History": [
+    "Small bowel obstruction",
+    "S/P jejunocolonal bypass surgery",
+    "Hypokalemia",
+    "Anemia"
+  ]
+}

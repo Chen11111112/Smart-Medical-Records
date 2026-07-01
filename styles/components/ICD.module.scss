@@ -1,0 +1,343 @@
+@use '../base/variables' as *;
+@use '../base/mixin' as *;
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bodyScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+  }
+}
+.searchContainer {
+  display: flex;
+  gap: 8px;
+  margin: 16px 10px;
+  flex-shrink: 0;
+  align-items: stretch;
+
+  input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 8px;
+    font-size: 16px;
+
+    @include tablet {
+      padding: 10px 12px;
+      min-height: $touch-target-min;
+      font-size: 1rem;
+    }
+  }
+
+  button {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+
+    @include tablet {
+      padding: 10px 16px;
+      font-size: $font-size-tablet-small;
+      @include touch-target;
+    }
+  }
+
+  @include tablet-portrait {
+    margin: 8px 10px;
+    z-index: 1;
+    background-color: inherit;
+  }
+}
+
+.error {
+  color: red;
+  margin-bottom: 8px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.card {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+
+  @include tablet {
+    padding: 14px 12px;
+    min-height: $touch-target-min;
+  }
+}
+
+.code {
+  color: #2c3e50;
+  // cursor: pointer;
+  user-select: text;
+  margin-bottom: 4px;
+}
+
+.zhName {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.enName {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.score {
+  color: #888;
+  font-size: 12px;
+  margin-top: 1px;
+
+  @include tablet {
+    font-size: $font-size-tablet-small;
+  }
+}
+
+.loader {
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 60%;
+  max-height: 80vh;
+  overflow: hidden;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    width: min(92vw, 900px);
+    padding: 16px 14px;
+  }
+}
+
+.modalBody {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+  }
+}
+
+.modalContent {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+
+  @include tablet-portrait {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modalFooter {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid #e0e0e0;
+
+  button {
+    min-width: 120px;
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+
+    @include tablet {
+      padding: 10px 24px;
+      @include touch-target;
+    }
+  }
+}
+
+.modalCloseBtn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+
+  @include tablet {
+    width: $touch-target-min;
+    height: $touch-target-min;
+    font-size: 32px;
+  }
+}
+
+.selectionHint {
+  margin: 0 10px 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.selectedList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 10px 12px;
+}
+
+.cardSelected {
+  border-color: #4d9be6;
+  background-color: #eef6fc;
+}
+
+.selectedBadge {
+  font-size: 12px;
+  color: #4d9be6;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.removeBtn {
+  margin-top: 8px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #868686;
+  // background: #fff;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 12px;
+  gap: 12px;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.reopenButtonContainer {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.reopenButton {
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 0 10px;
+
+  @include tablet {
+    padding: 12px 18px;
+    font-size: $font-size-tablet-small;
+    @include touch-target;
+  }
+}
+
+.reopenButton:hover {
+  background-color: #2980b9;
+}
+.searchInput{
+  // border: none;
+  // background-color: #FAFAFA;
+  // border-bottom: 1.5px solid #000 ;
+  
+}
+.code{
+  color: "#2c3e50" 
+}
+.dark{
+  background-color: #1a1a1a;
+
+  .card{
+    background-color: #1a1a1a;
+    border: #585858 1px solid;
+  }
+  .code{
+    color: #ddd;
+  }
+  .enName{
+    color: #ddd;
+  }
+  .cardSelected {
+    background-color: #2a3a4a;
+    border-color: #4d9be6;
+  }
+  .selectionHint {
+    color: #bbb;
+  }
+  .modalFooter {
+    border-top-color: #585858;
+  }
+  .modalCloseBtn {
+    color: #ddd;
+  }
+  button ,input {
+    background-color: #333;
+    color:#e0e0e0;
+  }
+}

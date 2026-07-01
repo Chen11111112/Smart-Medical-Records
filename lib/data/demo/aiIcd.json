@@ -1,0 +1,39 @@
+{
+  "Diagnosis with ICD code": {
+    "Head injury with left frontal swelling and abrasion": [
+      "1. S00.83XA Contusion of other parts of head, initial encounter",
+      "2. S00.03XA Contusion of scalp, initial encounter",
+      "3. S01.112A Laceration without foreign body of left eyelid and periocular area, initial encounter",
+      "4. S09.90XA Unspecified injury of head, initial encounter",
+      "5. S00.12XA Contusion of left eyelid and periocular area, initial encounter"
+    ],
+    "Contusion of bilateral knees": [
+      "1. S80.01XA Contusion of right knee, initial encounter",
+      "2. S80.02XA Contusion of left knee, initial encounter",
+      "3. S80.00XA Contusion of unspecified knee, initial encounter",
+      "4. S89.91XA Unspecified injury of right lower leg, initial encounter",
+      "5. S89.92XA Unspecified injury of left lower leg, initial encounter"
+    ],
+    "Status post cardiac valve surgery": [
+      "1. Z95.2 Presence of prosthetic heart valve",
+      "2. Z95.4 Presence of other heart-valve replacement",
+      "3. Z95.3 Presence of xenogenic heart valve",
+      "4. Z48.812 Encounter for surgical aftercare following surgery on the circulatory system",
+      "5. I35.8 Other nonrheumatic aortic valve disorders"
+    ],
+    "Long term (current) use of anticoagulants": [
+      "1. Z79.01 Long term (current) use of anticoagulants",
+      "2. Z92.1 Personal history of long-term (current) use of anticoagulants",
+      "3. T45.515A Adverse effect of antithrombotic drugs, initial encounter",
+      "4. Z79.899 Other long term (current) drug therapy",
+      "5. D68.32 Hemorrhagic disorder due to extrinsic circulating anticoagulants"
+    ],
+    "Fall on same level": [
+      "1. W18.30XA Fall on same level, unspecified, initial encounter",
+      "2. W19.XXXA Unspecified fall, initial encounter",
+      "3. W01.0XXA Fall on same level from slipping, tripping and stumbling without subsequent strike against object, initial encounter",
+      "4. W18.39XA Fall on same level due to other slipping, tripping and stumbling, initial encounter",
+      "5. Y92.9 Unspecified place or occurrence"
+    ]
+  }
+}

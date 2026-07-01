@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-button {
+  background: transparent;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(204, 204, 204);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+
+
+
+* {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif !important;
+  margin: 0;
+}
+
+// 平板視窗內主文行高（僅 ≤1180px；具體觸控尺寸由各 SCSS Module 控制）
+@media (max-width: $tablet-landscape-max) {
+  body {
+    font-size: 1rem;
+    line-height: 1.45;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.08);
+  }
+}

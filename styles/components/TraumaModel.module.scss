@@ -1,0 +1,120 @@
+@use '../base/mixin' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+
+  @include tablet-portrait {
+    width: 94%;
+    padding: 18px 14px;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+
+  @include tablet {
+    font-size: 1.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.selectionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.selectionItem {
+  background: #f4f4f4;
+  padding: 20px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &:hover {
+    background: #e0e0e0;
+  }
+}
+
+@include tablet-portrait {
+  .selectionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Mode */
+.dark {
+  .modalContainer {
+    background: #1e1e1e;
+    color: #f0f0f0;
+  }
+
+  .modalTitle {
+    color: #ffffff;
+  }
+
+  .selectionGrid {
+    background-color: #1e1e1e;
+  }
+
+  .selectionItem {
+    background: #2c2c2c;
+    color: #dddddd;
+
+    &:hover {
+      background: #3a3a3a;
+    }
+  }
+
+  .closeBtn {
+    color: #ffffff;
+  }
+}

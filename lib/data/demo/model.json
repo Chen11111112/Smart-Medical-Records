@@ -1,0 +1,40 @@
+[
+  {
+    "ersbkey": 5629,
+    "name": "5629",
+    "department": "內",
+    "chiefComplaint": "Accidentally injured in the XXX finger by a used            nneedle during work just now                                 n",
+    "presentIllness": "Hospital employee(+), a radiology resident                  nS/S above onset while she's doing procedure on patient:     n                                                            n",
+    "pastHistory": "HBV(-) HCV(-)                                               nDenied pregnancy(-)                                         nAllergy: Denied(-)",
+    "generalCondition": "E4V5M6, Clear & oriented, painful appearance(-), walk-in    nNo ill-looking, Cardiopulmonary embarrassment(-)",
+    "heent": "Pale conjunctiva(-)/Icteric sclera(-)",
+    "neck": "Supple, stiffness(-), JVE(-), LAP(-)",
+    "chestAndLungs": "Clear breathing sounds, Wheezing(-)/Rhonchi(-)/Rales(-)     nIRHB(-), Murmur(-)",
+    "abdomen": "Soft, Tenderness(-), Peritoneal sign(-)                     nRebounding pain(-), Normo-active bowel sounds(+)",
+    "backAndSpine": "",
+    "exogenitalia": "",
+    "rectalExam": "NOT done",
+    "extremities": "Freely movable with ROM normal, Lower leg pitting edema(-)",
+    "neurologicalExam": "Intact",
+    "doctorId": ""
+  },
+  {
+    "ersbkey": 5692,
+    "name": "5692",
+    "department": "內",
+    "chiefComplaint": "for                                                         nNausea(-)/Vomit(-)/Diarrhea(-), Fever(-)                    nReferred from -OPD LMD, Transferred from hospital S/P",
+    "presentIllness": "n                                                            nBeen to                                                     nLast meal:",
+    "pastHistory": "HTN(-), DM(-), CAD(-), CVA(-), COPD(-)                      nABD OP(-)                                                   nAllergy: Denied(-)                           LMP: 2020/12/",
+    "generalCondition": "E4V5M6, Clear & oriented, painful appearance(-), walk-in    nAcute ill-looking, Cardiopulmonary embarrassment(-)",
+    "heent": "Pale conjunctiva(-)/Icteric sclera(-)",
+    "neck": "Supple, stiffness(-), JVE(-), LAP(-)",
+    "chestAndLungs": "Coarse breathing sounds, Wheezing(-)/Rhonchi(-)/Rales(-)    nIRHB(-), Murmur(-)",
+    "abdomen": "Soft, Tenderness(-), Peritoneal sign(-)                     nRebounding pain(-), Hypo/Hyper/Normo-active bowel sounds(+)",
+    "backAndSpine": "Straight with no deformity",
+    "exogenitalia": "",
+    "rectalExam": "NOT done",
+    "extremities": "Freely movable with ROM normal, Lower leg pitting edema(-)",
+    "neurologicalExam": "INTACT",
+    "doctorId": ""
+  }
+]

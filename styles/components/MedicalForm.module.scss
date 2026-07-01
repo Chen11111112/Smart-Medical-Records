@@ -1,0 +1,393 @@
+@use '../base/variables' as *;
+@use '../base/mixin' as *;
+
+.container {
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow: scroll;
+  height: 100%;
+  min-height: 0;
+
+  @include tablet {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+/* ================= NAV ================= */
+
+
+.tabSelect {
+  width: 200px;
+  padding: 5px;
+
+  @include tablet {
+    padding: 8px 12px;
+    min-height: $touch-target-min;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+
+  @include tablet-portrait {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* ================= FORM ================= */
+.medicalForm {
+  background: #ebebeb;
+  padding: 12px;
+
+  @include tablet-portrait {
+    padding: 10px 8px;
+  }
+}
+
+/* 卡片化 */
+.formSection {
+  display: flex;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+
+  /* subtle shadow → 醫療系統感 */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+  @include tablet-portrait {
+    flex-direction: column;
+  }
+}
+
+/* 左側標題 */
+.sectionHeader {
+  width: 12%;
+  padding: 10px;
+  background: #e0e0e0;
+  font-weight: bold;
+  border-right: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @include tablet-portrait {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+/* 內容 */
+.sectionContent {
+  width: 88%;
+  padding: 10px;
+  textarea {
+    resize: none;
+    width: 99%;
+  }
+
+  @include tablet-portrait {
+    width: 100%;
+  }
+}
+
+/* ================= INPUT ================= */
+.inputField {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px;
+  background: white;
+  transition: border 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
+    outline: none;
+  }
+
+  @include tablet {
+    padding: 10px 12px;
+    font-size: $font-size-tablet-body;
+    min-height: $touch-target-min;
+  }
+}
+
+.inputFieldOverLimit {
+  border-color: #d32f2f !important;
+  background: #fff5f5 !important;
+  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.15) !important;
+
+  &:focus {
+    border-color: #d32f2f !important;
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.25) !important;
+  }
+}
+
+.charCount {
+  text-align: right;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+
+  @include tablet {
+    font-size: $font-size-tablet-small;
+  }
+}
+
+.charCountOver {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* ================= INFO ================= */
+.complaintInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.nullValue {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.painAssessment {
+  background: #e3f2fd;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+
+  @include tablet {
+    padding: 6px 12px;
+    font-size: $font-size-tablet-small;
+  }
+}
+
+/* ================= VITAL ================= */
+.vitalSignsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0;
+  border-collapse: collapse;
+
+  @include tablet-portrait {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vitalItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 0.5px solid #e5e7eb;
+  font-size: 14px;
+
+  @include tablet {
+    padding: 10px 12px;
+    font-size: $font-size-tablet-small;
+  }
+}
+
+.vitalItem label {
+  font-weight: 600;
+  margin-right: 8px;
+  min-width: 30px;
+}
+
+.vitalInput {
+  border: 1px solid #9ca3af;
+  border-radius: 4px;
+  padding: 2px 4px;
+  width: 60px;
+  height: 24px;
+  text-align: center;
+
+  @include tablet {
+    padding: 4px 6px;
+    width: 64px;
+    height: auto;
+    min-height: $touch-target-min;
+    font-size: $font-size-tablet-body;
+  }
+}
+
+/* BP 特別處理 */
+.bpInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.unit {
+  margin-left: 6px;
+  color: #4b5563;
+}
+/* ================= BUTTON ================= */
+.redButton {
+  background: #e07169;
+  color: white;
+  border: none;
+  // margin-right: 5px;
+  border-radius: 5px;
+  padding: 4px 8px;
+
+
+  @include tablet {
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: $font-size-tablet-small;
+    @include touch-target;
+  }
+}
+
+.blueButton {
+  background: #96caf5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+
+
+  @include tablet {
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: $font-size-tablet-small;
+    @include touch-target;
+  }
+}
+
+/* ================= PAST HISTORY ================= */
+.formSectionP {
+  @extend .formSection;
+
+  textarea {
+    margin-bottom: 6px;
+  }
+}
+
+/* ================= DARK MODE ================= */
+.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+
+  .container {
+    background-color: #121212;
+  }
+
+
+
+  .tabSelect {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+  }
+
+  /* --- FORM & SECTIONS --- */
+  .medicalForm {
+    background: #181818;
+  }
+
+  .formSection {
+    background: #1e1e1e;
+    border-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .sectionHeader {
+    background: #252525;
+    color: #e7e7e7; // 標題改用淺藍色增加識別度
+    border-right: 1px solid #333;
+  }
+
+  /* --- INPUTS --- */
+  .inputField, textarea {
+    background: #2a2a2a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #444 !important;
+
+    &:focus {
+      border-color: #64b5f6 !important;
+      box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+    }
+  }
+
+  .inputFieldOverLimit {
+    border-color: #ef5350 !important;
+    background: #3d1f1f !important;
+    box-shadow: 0 0 0 2px rgba(239, 83, 80, 0.25) !important;
+
+    &:focus {
+      border-color: #ef5350 !important;
+      box-shadow: 0 0 0 2px rgba(239, 83, 80, 0.35) !important;
+    }
+  }
+
+  .charCount {
+    color: #9ca3af;
+  }
+
+  .charCountOver {
+    color: #ef5350;
+  }
+
+  /* --- VITAL SIGNS --- */
+  .vitalItem {
+    background: #252525;
+    border-color: #333;
+
+    label {
+      color: #aaa;
+    }
+
+    span {
+      color: #777;
+    }
+
+    &:hover {
+      background: #2d2d2d;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .vitalInput {
+    background: transparent;
+    color: #fff;
+    border-bottom: 1px solid #444;
+
+    &:focus {
+      border-color: #64b5f6;
+    }
+  }
+
+  /* --- INFO & CHIPS --- */
+  .painAssessment {
+    background: #0d47a1; // 深藍色背景
+    color: #e3f2fd;
+  }
+
+  .nullValue {
+    color: #ff5252; // 更亮一點的紅色
+  }
+
+  /* --- BUTTONS --- */
+  .blueButton {
+    background: #1976d2;
+    &:hover { background: #1565c0; }
+  }
+
+  .redButton {
+    background: #ac2b0a;
+
+  }
+}

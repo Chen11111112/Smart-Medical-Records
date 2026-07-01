@@ -1,0 +1,6 @@
+// scss檔名前有底線的都會加到這裡（variables 需早於 global，供全域媒體查詢使用）
+@use './base/reset';
+@use './base/variables';
+@use './base/extends';
+@use './base/mixin';
+@use './base/global';

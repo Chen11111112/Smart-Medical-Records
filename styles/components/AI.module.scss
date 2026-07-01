@@ -1,0 +1,441 @@
+@use '../base/variables' as *;
+@use '../base/mixin' as *;
+
+/* --- Right Collapse Panel Content --- */
+.rightCollapseContent {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    min-width: 300px;
+  }
+}
+.rightCollapseHeader {
+  padding: 10px;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.rightButton {
+  display: flex;
+  
+  gap: 12px;
+
+  @include tablet {
+    flex-wrap: wrap;
+
+    button {
+      @include touch-target;
+      padding: 0 14px;
+      font-size: $font-size-tablet-small;
+    }
+  }
+}
+
+.customToast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: #3cb940;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  animation: slideIn 0.3s ease-out;
+
+  &:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+    transition: all 0.2s;
+  }
+
+  .toastContent {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  }
+
+  .toastAction {
+    font-size: 12px;
+    text-decoration: underline;
+    opacity: 0.9;
+    margin-top: 4px;
+  }
+}
+
+.closeBtn {
+  background: #999;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    background: #777;
+  }
+
+  @include tablet {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: $font-size-tablet-small;
+    @include touch-target;
+  }
+}
+
+/* --- Chat Area --- */
+.reply {
+  height: 30%;
+  overflow-y: auto;
+  padding: 0 15px;
+  word-spacing: 1px;
+  line-height: 1.75;
+  user-select: text;
+  -webkit-user-select: text;
+  -webkit-overflow-scrolling: touch;
+
+  @include tablet {
+    flex: 1 1 0;
+    min-height: 0;
+    height: auto;
+  }
+}
+
+.thinking {
+  color: rgb(36, 36, 36);
+  animation: fadeInOut 2s infinite;
+  padding: 0 12px 0;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* --- Search Bar --- */
+.searchBar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+
+  @include tablet-portrait {
+    padding: 8px;
+  }
+}
+
+.searchInputContainer {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 6px 30px 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  @include tablet {
+    padding: 10px 44px 10px 12px;
+    min-height: $touch-target-min;
+    font-size: 1rem;
+  }
+}
+
+.searchButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+
+  @include tablet {
+    min-width: $touch-target-min;
+    padding: 0 12px;
+  }
+}
+
+.searchIcon {
+  font-size: 16px;
+}
+
+/* --- Modal --- */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.message {
+    width: 960px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: "Microsoft JhengHei", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  
+  font-size: 20px;
+  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    width: min(92vw, 900px);
+    height: auto;
+    max-height: 55vh;
+    font-size: 1rem;
+    padding: 20px 16px;
+  }
+  .checkbox{
+    display: flex;
+    justify-content: space-around;
+  }
+  .cencel{
+      background: none;
+      border: none;
+    }
+  button {
+    cursor: pointer;
+    @include tablet {
+      @include touch-target;
+      padding: 8px 16px;
+      font-size: $font-size-tablet-small;
+    }
+
+  }
+  textarea{
+    resize: none;
+    height: 200px;
+  }
+}
+
+.textarea {
+  margin: -20px 0;
+  height: 40%;
+}
+
+.messageBubble,
+.messageText,
+.optionText {
+  user-select: text;
+  -webkit-user-select: text;
+  line-height: 1.75;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.userMessageBubble,
+.userMessageBubble .messageText {
+  color: #1a1a1a;
+}
+
+.aiWarning {
+  color: #c62828;
+  background-color: #ffebee;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.messageActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+
+  button {
+    font-size: 12px;
+    padding: 4px 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.messageReactions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: flex-start;
+
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1;
+
+    &:hover {
+      color: #333;
+    }
+
+    &.reactionActive {
+      color: #2563eb;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
+
+.reactionActive {
+  color: #2563eb !important;
+}
+
+.starRating {
+  display: flex;
+  justify-content: space-evenly;
+  
+
+  button {
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+    color: #ccc;
+    padding: 4px;
+    line-height: 1;
+
+    &.filled {
+      color: #f5a623;
+    }
+  }
+}
+
+
+.checkBox {
+  label {
+    margin: 1%;
+  }
+}
+
+/* --- Dark Mode --- */
+.dark {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  .modalOverlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  button, input, textarea, select {
+    background-color: #333;
+    color: #e0e0e0;
+  }
+
+  .rightCollapseHeader {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+  }
+
+  .closeBtn {
+    background: #444;
+
+    &:hover {
+      background: #555;
+    }
+  }
+
+  .reply {
+    color: #e0e0e0;
+  }
+
+  .userMessageBubble,
+  .userMessageBubble .messageText {
+    color: #1a1a1a;
+  }
+
+  .thinking {
+    color: #aaaaaa;
+  }
+
+  .searchBar {
+    background-color: #252525;
+  }
+
+  .searchInput,
+  textarea,
+  input {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+    border-color: #444;
+
+    &::placeholder {
+      color: #777;
+    }
+  }
+
+  .searchButton {
+    color: #aaa;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .message {
+    background-color: #252525;
+    color: #e0e0e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .messageActions button {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #555;
+
+    &:hover {
+      background-color: #444;
+    }
+  }
+
+  .messageReactions button {
+    color: #aaa;
+
+    &:hover {
+      color: #e0e0e0;
+    }
+
+    &.reactionActive {
+      color: #4d9be6;
+    }
+  }
+
+  .aiWarning {
+    color: #ef9a9a;
+    background-color: rgba(198, 40, 40, 0.28);
+  }
+}

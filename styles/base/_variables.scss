@@ -1,0 +1,35 @@
+// 變數定義 (底線開頭代表這是一個 partial file)
+
+// --- iPad Air 4 平板基準（直向 / 橫向 CSS 寬度）---
+$tablet-portrait-max: 820px;
+$tablet-landscape-max: 1180px;
+// 觸控目標（Apple HIG 建議至少 44×44 pt）
+$touch-target-min: 44px;
+// 820px 寬下維持可讀主文比例（與 16px 基準搭配）
+$font-size-tablet-body: 1rem;
+$font-size-tablet-small: 0.9375rem; // 15px
+
+$primary-color: #28a745;
+$listening-color: #17a2b8;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+$bg-color: #f8f9fa;
+$white: #ffffff;
+
+// 呼吸燈動畫
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+// 混入 (Mixin)
+@mixin status-badge($bg-color) {
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  background: $bg-color;
+  transition: background 0.3s ease;
+}

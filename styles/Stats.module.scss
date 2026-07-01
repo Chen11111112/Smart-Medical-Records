@@ -1,0 +1,162 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1a1a1a;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+
+  h1 {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  button,
+  a {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  button {
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  a {
+    border: 1px solid #2563eb;
+    color: #2563eb;
+    background: #eff6ff;
+  }
+}
+
+.error {
+  color: #b91c1c;
+  padding: 12px;
+  background: #fef2f2;
+  border-radius: 6px;
+}
+
+.section {
+  margin-bottom: 32px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fafafa;
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+}
+
+.hint {
+  margin: 0 0 14px;
+  color: #555;
+  font-size: 0.875rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: #fff;
+
+  th,
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  th {
+    background: #f3f4f6;
+    font-weight: 600;
+  }
+}
+
+.barChart {
+  display: flex;
+  height: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #e5e7eb;
+  margin-bottom: 12px;
+}
+
+.barRecord {
+  background: #2563eb;
+  min-width: 2px;
+  transition: width 0.3s ease;
+}
+
+.barUpload {
+  background: #059669;
+  min-width: 2px;
+  transition: width 0.3s ease;
+}
+
+.legend {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.875rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+.dotRecord,
+.dotUpload {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.dotRecord {
+  background: #2563eb;
+}
+
+.dotUpload {
+  background: #059669;
+}
+
+.conclusion {
+  margin: 0;
+  font-weight: 600;
+  color: #1d4ed8;
+}

@@ -1,0 +1,548 @@
+@use '../base/variables' as *;
+@use '../base/mixin' as *;
+
+/* --- History Layout --- */
+// ReportModal.module.scss
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  
+}
+.loading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111827;
+  }
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  &:hover { color: #000; }
+}
+
+.body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  
+  // 針對 API 回傳的 HTML 表格進行樣式處理
+  :global {
+    .report-container {
+      table {
+        width: 100% !important;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+        font-family: sans-serif;
+      }
+
+      td {
+        padding: 6px 8px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      // 關鍵：將 API 標記的高低值提示變色
+      td {
+        &:contains('H'), &:contains(' H') {
+          color: #d32f2f; // 紅色
+          font-weight: bold;
+        }
+        &:contains('L'), &:contains(' L') {
+          color: #1976d2; // 藍色
+          font-weight: bold;
+        }
+      }
+
+      hr {
+        border: 0;
+        border-top: 2px solid #333;
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.confirmBtn {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  &:hover { background-color: #1d4ed8; }
+}
+
+
+.leftTop {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.historyTitle {
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background-color: #e0e0e0;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  @include tablet {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 10px;
+
+    button {
+      @include touch-target;
+      padding: 0 14px;
+      font-size: $font-size-tablet-small;
+    }
+  }
+}
+
+.historyItems {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  background-color: #ffffff;
+  font-size: 18px;
+
+  @include tablet-portrait {
+    font-size: 1rem;
+  }
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+
+  @include tablet {
+    align-items: center;
+    padding: 14px 12px;
+    min-height: $touch-target-min;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  @include tablet {
+    h2 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.expandIcon {
+  font-size: 10px;
+  color: #777;
+}
+
+.expandedPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.expandedContent {
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-top: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+
+  @include tablet {
+    padding: 12px;
+    font-size: $font-size-tablet-small;
+    line-height: 1.45;
+  }
+}
+
+
+/* --- Table --- */
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  display: flex;
+  
+}
+.theme{
+  .table{
+    width: 100%;
+  }
+  
+}
+
+.item {
+  font-size: 18px;
+}
+
+.odd {
+  background-color: rgb(232, 232, 232);
+}
+.Cell{
+  height: 10%;
+}
+.keyCell {
+  width: 45%;
+  font-weight: bold;
+  padding: 6px;
+}
+
+.valueCell {
+  width: 60%;
+  padding: 6px;
+}
+
+.noData {
+  padding: 10px;
+  color: #888;
+  font-style: italic;
+}
+
+.errorText {
+  padding: 10px;
+  color: #dc2626;
+}
+
+.emptyHint {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #9ca3af;
+}
+
+
+/* --- Dark Mode --- */
+
+.dark {
+  color: #e0e0e0;
+
+  .historyTitle {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border-bottom: 1px solid #444;
+
+    button {
+      background-color: #3a3a3a;
+      color: #e0e0e0;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #4a4a4a;
+      }
+    }
+  }
+
+  .historyItems {
+    background-color: #252525;
+    color: #e0e0e0;
+  }
+
+  .historyItem {
+    border-bottom-color: #333;
+    color: #e0e0e0;
+
+    h2 {
+      color: #e0e0e0;
+    }
+  }
+
+  .expandIcon {
+    color: #aaa;
+  }
+
+  .expandedPanel {
+    background-color: #1f1f1f;
+  }
+
+  .historyList {
+    width: 100%;
+  }
+
+  .historyRow {
+    border-bottom-color: #3a3a3a;
+  }
+
+  .date {
+    color: #9ca3af;
+  }
+
+  .subject {
+    color: #d1d5db;
+  }
+
+  .desc {
+    color: #c4c4c4;
+  }
+
+  .expandedContent {
+    background-color: #292929;
+    color: #cccccc;
+  }
+
+  .noData {
+    color: #888;
+  }
+
+  .errorText {
+    color: #f87171;
+  }
+
+  .emptyHint {
+    color: #888;
+  }
+
+  // SpTable / MedicalRow
+  .table {
+    background-color: #2a2a2a;
+  }
+
+  .headerRow {
+    background-color: #333;
+    color: #e0e0e0;
+
+    strong {
+      color: #f0f0f0;
+    }
+  }
+
+  .item {
+    background-color: #252525;
+    color: #d0d0d0;
+  }
+  .valueCell { // 黑底白字
+    color: #e0e0e0;
+  }
+
+  .odd {
+    background-color: rgb(209, 209, 209);
+    color: #181818cc;
+    strong { // 標題列 白底黑字
+      color: #181818cc;
+    }
+  }
+  .odd td{ //白底黑字
+    color: #181818cc;
+  }
+
+
+
+  // .keyCell {
+  //   color: #d0d0d0;
+  // }
+  // .keyCell{
+  //   color: #ff0b0b;
+  // }
+
+
+
+  .icon {
+    color: #aaa;
+  }
+
+  .modalOverlay {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .modalContent {
+    background: #252525;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .header {
+    border-bottom-color: #444;
+
+    // h3 {
+    //   color: #e0e0e0;
+    // }
+  }
+
+  .closeBtn {
+    color: #aaa;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .body {
+    :global(.report-container),
+    :global(.report-container.report-dark) {
+      color: #e0e0e0;
+      background-color: #1e1e1e;
+      padding: 12px;
+      border-radius: 6px;
+
+      table {
+        background-color: #2a2a2a !important;
+      }
+
+      td,
+      th {
+        border-color: #555 !important;
+        color: #e0e0e0 !important;
+        background-color: transparent !important;
+      }
+
+      hr {
+        border-top-color: #666;
+      }
+
+      font,
+      span,
+      p,
+      div {
+        color: #e0e0e0 !important;
+      }
+    }
+  }
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  @include tablet-portrait {
+    max-width: none;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #e9e9e9;
+  overflow: hidden;
+}
+
+.headerRow {
+  background-color: #e2e2e2;
+  cursor: pointer;
+  
+  transition: all 0.2s ease;
+  td{
+    padding: 3%  ;
+  }
+}
+.historyRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  @include tablet {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 0;
+    min-height: $touch-target-min;
+  }
+}
+
+.date {
+  color: #666;
+  font-family: monospace; 
+  white-space: nowrap;  
+}
+
+.subject {
+  font-weight: bold;
+  color: #2c3e50;
+  min-width: 100px;
+}
+
+.desc {
+  color: #333;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  color: #888888;
+  font-size: 0.8em;
+}
+
+.keyCell {
+  width: 45%;
+  padding: 14px 20px;
+  color: #363636;
+  font-weight: 600;
+}
+
+.valueCell {
+  padding: 14px 20px;
+  color: #363636;
+}
+
+.odd {
+  background-color: #ffffff; 
+}
+
+.item {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,58 @@
+@use '../base/mixin' as *;
+
+.selectionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.selectionItem {
+  background: #f4f4f4;
+  padding: 20px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  min-height: 48px;
+
+  &:hover {
+    background: #e0e0e0;
+  }
+}
+
+.Cust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@include tablet-portrait {
+  .selectionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Mode */
+.dark {
+
+  .selectionGrid {
+    background-color: #1e1e1e;
+  }
+
+  .selectionItem,
+  .Cust {
+    background: #2c2c2c;
+    color: #dddddd;
+    transition: background-color 0.2s;
+  }
+
+  .selectionItem:hover {
+    background: #3a3a3a;
+
+    .Cust {
+      background: #3a3a3a;
+    }
+  }
+
+}

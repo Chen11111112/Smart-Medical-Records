@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+// ---------------------------------------------------------------------------
+// 平板 RWD（專案僅針對 Tablet；基準：iPad Air 4）
+// 直向 Portrait：寬 ≤820px ｜ 橫向 Landscape：821px～1180px
+// 電腦版：寬 > 1180px（維持原有按鈕／版面，僅在此區間還原預設）
+// ---------------------------------------------------------------------------
+
+/// 電腦版（大於平板最大寬度）
+@mixin desktop {
+  @media (min-width: ($tablet-landscape-max + 1px)) {
+    @content;
+  }
+}
+
+/// 所有「平板視窗」寬度（含直向與橫向典型寬度）
+@mixin tablet {
+  @media (max-width: $tablet-landscape-max) {
+    @content;
+  }
+}
+
+/// 直向：窄寬（約 820px 及以下）
+@mixin tablet-portrait {
+  @media (max-width: $tablet-portrait-max) {
+    @content;
+  }
+}
+
+/// 橫向：典型平板寬度帶
+@mixin tablet-landscape {
+  @media (min-width: ($tablet-portrait-max + 1px)) and (max-width: $tablet-landscape-max) {
+    @content;
+  }
+}
+
+/// 可點擊區域最小高度（按鈕、連結）
+@mixin touch-target {
+  min-height: $touch-target-min;
+  min-width: $touch-target-min;
+  box-sizing: border-box;
+}
