@@ -16,15 +16,6 @@
   - DB2（HIS，透過 Python 腳本 `scripts/*.py` 查詢）
 - **AI / 語音**：院方 Gemma API、飛利浦 AI Gateway、Whisper ASR
 
-## 文件索引
-
-| 文件 | 說明 |
-|------|------|
-| [docs/SYSTEM_DOCUMENTATION.md](docs/SYSTEM_DOCUMENTATION.md) | 完整系統技術文件 |
-| [docs/院方整合與Session說明.md](docs/院方整合與Session說明.md) | ERS 整合、Session Handoff 流程 |
-| [docs/open_mysys.js](docs/open_mysys.js) | 院方前端整合範例 |
-| [docs/院方_醫師操作手冊_簡明版.md](docs/院方_醫師操作手冊_簡明版.md) | 醫師操作手冊 |
-
 ## 安裝與啟動（開發模式）
 
 ```bash
