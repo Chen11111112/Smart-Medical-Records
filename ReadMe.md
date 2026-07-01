@@ -1,7 +1,8 @@
-# Emergency Web
+# Smart-Medical-Records
 
 > **這是刪去機密資料後的DEMO版專案，並不會實際與後端對話以及進行查詢，只會回傳假資料。**  
 
+本系統由 [陳泓毓](https://hyc.eshachem.com/) 進行全端開發。
 
 本專案為 **Next.js 14 + TypeScript + App Router (RSC)** 全端專案，急診病歷輔助書寫系統。
 
@@ -14,8 +15,6 @@
   - MySQL（ICD / Model / 分析紀錄）
   - DB2（HIS，透過 Python 腳本 `scripts/*.py` 查詢）
 - **AI / 語音**：院方 Gemma API、飛利浦 AI Gateway、Whisper ASR
-
-> v3 架構：內部 DB2 查詢已改為 Server Actions，不再暴露公開 SP API。
 
 ## 文件索引
 
@@ -34,8 +33,6 @@ npm run dev
 ```
 
 預設網址：`http://localhost:3000`
-
-環境變數請參考 `env.md`，建立 `.env.development` 或 `.env.production`。
 
 ## DB2（Python 微服務）
 
@@ -97,12 +94,3 @@ npm run build    # 正式建置
 npm start        # 啟動正式伺服器（需先 build）
 npm run lint     # ESLint 檢查
 ```
-
-## 測試資料
-
-病歷號：`38910600`、`26433910`、`14298023`、`51936299`  
-就診號範例：`I4184957`
-
-## 專案連結
-
-- 欄位對照 Excel：[Google Sheets](https://docs.google.com/spreadsheets/d/1me2BqjypT4a-Dq-u8UrX59cHfxPRWec3b1ZO1Le35Fs/edit?gid=934696975#gid=934696975)
