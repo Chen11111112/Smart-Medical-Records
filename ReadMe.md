@@ -2,8 +2,9 @@
 
 > **這是刪去機密資料後的DEMO版專案，並不會實際與後端對話以及進行查詢，只會回傳假資料。**  
 
-本系統由 [陳泓毓](https://hyc.eshachem.com/) 進行全端開發。
-[點擊此處](https://emergency.ntubimdbirc.tw/)可前往DEMO版網站。
+本系統由 [陳泓毓](https://hyc.eshachem.com/) 進行全端開發。  
+[點擊此處](https://emergency.ntubimdbirc.tw/)可前往DEMO版網站。  
+(DEMO版不開發查詢ICD功能，也不對外公開一些資料)
 
 本專案為 **Next.js 14 + TypeScript + App Router (RSC)** 全端專案，急診病歷輔助書寫系統。
 
